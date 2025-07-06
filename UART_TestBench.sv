@@ -22,7 +22,7 @@ module UART_TestBench;
         #5;
         Reset = 0;
         EN = 1;
-        #100;
+        #1000000;
         $finish;
     end
     initial begin

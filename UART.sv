@@ -1,10 +1,18 @@
 module UART (input logic CLK, EN, Reset,
              input logic [7:0] DataIN,
              output logic [7:0] DataOUT);
-    logic tx;
+
+    logic tx=1, BaudTick;
+
+    BaudGenerator BaudGen(
+        .CLK(CLK),     
+        .Reset(Reset),   
+        .BaudTick(BaudTick)
+    );
 
     Transmitter TX(
         .CLK(CLK),
+        .BaudTick(BaudTick),
         .Reset(Reset),
         .EN(EN),
         .DataIN(DataIN),
@@ -13,6 +21,7 @@ module UART (input logic CLK, EN, Reset,
 
     Receiver RX(
         .CLK(CLK),
+        .BaudTick(BaudTick),
         .Reset(Reset),
         .rx(tx),
         .DataOUT(DataOUT)
