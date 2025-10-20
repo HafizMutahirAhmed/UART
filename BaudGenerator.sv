@@ -4,7 +4,7 @@ module BaudGenerator (
     output logic BaudTick
 );
 
-    logic [12:0] MAX_COUNT = 13'd5208;
+    logic [12:0] MAX_COUNT = 13'd16;
 
     logic [12:0] count; // 13 bits are enough for 5208
 
