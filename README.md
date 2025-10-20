@@ -62,6 +62,8 @@ You can use these modules for UART simulation or integrate them in an FPGA desig
 ## 🧪 Simulation
 
 You can simulate the system with your own testbench to verify:
+To run using verilator: 
+rm -rf obj_dir && verilator --timing --cc --binary --top-module UART_TestBench --trace --build   UART.sv UART_TestBench.sv && ./obj_dir/VUART_TestBench
 
 - Correct bit ordering
 - Timing of `BaudTick`
@@ -72,7 +74,6 @@ You can simulate the system with your own testbench to verify:
 ## 💡 Future Improvements
 
 - Add **LSB-first support** to match standard UART devices.
-- Add framing/parity/error checking.
 - Create a top-level integration module for DE1-SoC (e.g., using switches/LEDs).
 
 ---
